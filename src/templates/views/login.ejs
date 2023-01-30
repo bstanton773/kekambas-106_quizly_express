@@ -1,4 +1,4 @@
-<%- include('../partials/header.ejs') %> 
+<%- include('../partials/header.ejs') %>
 
     <div class="container">
         <div class="row">
@@ -9,22 +9,18 @@
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="text" name="email" class="form-control">
-                                <label for="username">Username</label>
-                                <input type="text" name="username" class="form-control">
                                 <label for="password">Password</label>
                                 <input type="password" name="password" class="form-control">
-                                <label for="confirmPass">Confirm Password</label>
-                                <input type="password" name="confirmPass" class="form-control">
                             </div>
                             <div class="form-group">
-                                <a href="/auth/login"><small>Already have an account? Login Here</small></a>
+                                <a href="/auth/register"><small>Don't have an account? Register Here</small></a>
                             </div>
-                            <button type="submit" class="btn btn-primary">Register</button>
+                            <button type="submit" class="btn btn-primary">Login</button>
                         </form>
                     </h1>
                 </div>
             </div>
         </div>
     </div>
-    
+
 <%- include('../partials/footer.ejs') %>
