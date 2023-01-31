@@ -8,6 +8,9 @@ app.set('view engine', 'ejs');
 // Update the location of the folder for res.render to use
 app.set('views', path.join(__dirname, 'src/templates/views'))
 
+// Set up middleware to parse form data and add to request body
+app.use(express.urlencoded({ extended: true }));
+
 app.get('/', (req, res) => {
     res.send('Hello World');
 });
