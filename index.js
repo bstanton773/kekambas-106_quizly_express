@@ -1,8 +1,14 @@
+const dotenv = require('dotenv');
+dotenv.config();
 const express = require('express');
 const app = express();
 const port = 3000;
 const path = require('path');
+const { connectDB } = require('./src/db');
 
+
+// Execute the connectDB function to connect to our database
+connectDB();
 
 app.set('view engine', 'ejs');
 // Update the location of the folder for res.render to use
