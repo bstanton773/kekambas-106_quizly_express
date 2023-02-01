@@ -22,7 +22,6 @@ const user = {
         id: { type: GraphQLID }
     },
     resolve(parent, args){
-        console.log(parent, args)
         return User.findById(args.id)
     }
 }

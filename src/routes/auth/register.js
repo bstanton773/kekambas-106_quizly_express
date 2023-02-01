@@ -30,7 +30,7 @@ module.exports = async (req, res) => {
                 )
             
             const jwtToken = data.data.register
-            console.log(jwtToken);
+            res.cookie('jwtToken', jwtToken, { httpOnly: true })
 
             res.redirect('/');
         } catch(err) {
