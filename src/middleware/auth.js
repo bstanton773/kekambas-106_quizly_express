@@ -14,7 +14,7 @@ const authenticate = async (req, res, next) => {
         req.verifiedUser = verified.user;
         next()
     } catch(err){
-
+        console.log(err);
         if (unprotectedRoutes.includes(req.path)){
             next();
         } else {
