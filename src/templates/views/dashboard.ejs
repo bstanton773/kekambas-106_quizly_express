@@ -1,11 +1,31 @@
 <%- include("../partials/header.ejs") %>
 
 <div class="container">
-    <div class="row">
-        <div class="col">
-            <h1 class="text-center">Hello World</h1>
-        </div>
+    <h1 class="my-4">Quizly - Dashboard</h1>
+    <div class="d-flex justify-content-between align-items-center mt-5 mb-3">
+        <h2>Your Quizzes</h2>
+        <a href="" class="btn btn-primary">Create Quiz +</a>
     </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Submissions</th>
+                <th>Average Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for( let quiz of user.quizzes ) { %>
+                <tr>
+                    <td>
+                        <a href=""><strong><%= quiz.title %></strong></a>
+                    </td>
+                    <td>3</td>
+                    <td>100%</td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
 </div>
 
 <%- include("../partials/footer.ejs") %>
