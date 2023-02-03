@@ -18,10 +18,14 @@
             <% for( let quiz of user.quizzes ) { %>
                 <tr>
                     <td>
-                        <a href="/quiz/<%= locals.quiz?.slug %>"><strong><%= locals.quiz?.title %></strong></a>
+                        <a href="/quiz/<%= quiz?.slug %>"><strong><%= quiz?.title %></strong></a>
                     </td>
-                    <td>3</td>
-                    <td>100%</td>
+                    <td>
+                        <%= quiz.submissions.length %>
+                    </td>
+                    <td>
+                        <%= quiz.avgScore.toFixed(2) %>%
+                    </td>
                 </tr>
             <% } %>
         </tbody>
