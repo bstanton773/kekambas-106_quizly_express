@@ -6,4 +6,8 @@ QuizDashboardRouter.route('/create')
     .post(require('./create'))
 
 
+QuizDashboardRouter.route('/:slug')
+    .get(require('./view'))
+
+
 module.exports = QuizDashboardRouter;
