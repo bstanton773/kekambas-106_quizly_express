@@ -10,6 +10,7 @@
                 </div>
             </div>
             <form action="" method="post">
+                <input type="hidden" name="quizId" value="<%= locals.quiz.id %>">
                 <% for( let question of locals.quiz.questions ) { %>
                     <div class="card mt-4">
                         <div class="card-body">
