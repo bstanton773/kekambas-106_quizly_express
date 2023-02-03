@@ -18,7 +18,7 @@
             <% for( let quiz of user.quizzes ) { %>
                 <tr>
                     <td>
-                        <a href=""><strong><%= quiz.title %></strong></a>
+                        <a href="/quiz/<%= locals.quiz?.slug %>"><strong><%= locals.quiz?.title %></strong></a>
                     </td>
                     <td>3</td>
                     <td>100%</td>

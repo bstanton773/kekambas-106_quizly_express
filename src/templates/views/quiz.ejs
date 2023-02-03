@@ -9,6 +9,24 @@
                     <p><%= locals.quiz.description %></p>
                 </div>
             </div>
+            <form action="" method="post">
+                <% for( let question of locals.quiz.questions ) { %>
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="<%= question.id %>"><strong><%= question.title %></strong></label>
+                                <input type="text" name="<%= question.id %>" class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <button class="form-control btn btn-primary btn-block" type="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+
         </div>
     </div>
 </div>

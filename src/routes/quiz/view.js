@@ -36,7 +36,6 @@ module.exports = async (req, res) => {
         );
 
         quizData = data.data.quizBySlug;
-        console.log(quizData);
 
     } catch(err){
         console.log(err)
