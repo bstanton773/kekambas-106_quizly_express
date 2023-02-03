@@ -85,8 +85,22 @@ const QuestionType = new GraphQLObjectType(
 )
 
 
+// Create an Answer Input Type for submitting a quiz
+const AnswerInputType = new GraphQLInputObjectType(
+    {
+        name: 'AnswerInput',
+        description: 'Answer Input Type',
+        fields: () => ({
+            questionId: { type: GraphQLID },
+            answer: { type: GraphQLString }
+        })
+    }
+);
+
+
 module.exports = {
     UserType,
     QuizType,
     QuestionInputType,
+    AnswerInputType,
 }
