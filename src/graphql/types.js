@@ -1,7 +1,7 @@
 // Import built-in graphql types
-const { GraphQLObjectType, GraphQLID, GraphQLString, GraphQLInt, GraphQLInputObjectType, GraphQLList } = require('graphql');
+const { GraphQLObjectType, GraphQLID, GraphQLString, GraphQLInt, GraphQLInputObjectType, GraphQLList, GraphQLFloat } = require('graphql');
 // Import the User Model
-const { User, Quiz, Question } = require('../models');
+const { User, Quiz, Question, Submission } = require('../models');
 
 
 const UserType = new GraphQLObjectType(
@@ -16,6 +16,12 @@ const UserType = new GraphQLObjectType(
                 type: new GraphQLList(QuizType),
                 resolve(parent, args){
                     return Quiz.find( { userId: parent.id })
+                }
+            },
+            submissions: {
+                type: new GraphQLList(SubmissionType),
+                resolve(parent, args){
+                    return Submission.find( { userId: parent.id })
                 }
             }
         })
@@ -43,6 +49,25 @@ const QuizType = new GraphQLObjectType(
                 type: new GraphQLList(QuestionType),
                 resolve(parent, args){
                     return Question.find( { quizId: parent.id })
+                }
+            },
+            submissions: {
+                type: new GraphQLList(SubmissionType),
+                resolve(parent, args){
+                    return Submission.find({ quizId: parent.id })
+                }
+            },
+            avgScore: {
+                type: GraphQLFloat,
+                async resolve(parent, args){
+                    const submissions = await Submission.find({ quizId: parent.id })
+                    let score = 0;
+
+                    for (const submission of submissions){
+                        score += submission.score
+                    }
+
+                    return score / submissions.length
                 }
             }
         })
@@ -96,6 +121,32 @@ const AnswerInputType = new GraphQLInputObjectType(
         })
     }
 );
+
+
+const SubmissionType = new GraphQLObjectType(
+    {
+        name: 'Submission',
+        description: 'Submission Type',
+        fields: () => ({
+            id: { type: GraphQLID },
+            quizId: { type: GraphQLID },
+            userId: { type: GraphQLID },
+            score: { type: GraphQLInt },
+            user: {
+                type: UserType,
+                resolve(parent, args){
+                    return User.findById(parent.userId)
+                }
+            },
+            quiz: {
+                type: QuizType,
+                resolve(parent, args){
+                    return Quiz.findById(parent.quizId)
+                }
+            }
+        })
+    }
+)
 
 
 module.exports = {
