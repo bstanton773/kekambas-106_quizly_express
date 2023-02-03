@@ -6,6 +6,10 @@ QuizDashboardRouter.route('/create')
     .post(require('./create'))
 
 
+QuizDashboardRouter.route('/results/:id')
+    .get(require('./results'))
+
+
 QuizDashboardRouter.route('/:slug')
     .get(require('./view'))
     .post(require('./submit'))

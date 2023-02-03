@@ -1,0 +1,18 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-3">
+            <card class="card mt-5">
+                <div class="card-body">
+                    <h1>Thank You!</h1>
+                    <p><strong>You have successfully submitted quiz: </strong><%= locals.submission.quiz.title %></p>
+                    <p><strong>You scored: </strong><%= locals.submission.score %>%</p>
+                    <a href="/" class="btn btn-primary">Go Home</a>
+                </div>
+            </card>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>
