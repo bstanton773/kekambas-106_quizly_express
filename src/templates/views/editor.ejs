@@ -1,0 +1,44 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-3">
+            <div class="card mt-5">
+                <div class="card-body">
+                    <h1>Create A Quiz</h1>
+                </div>
+            </div>
+            <form action="" method="post">
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="quizTitle">Quiz Title</label>
+                            <input type="text" name="quizTitle" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="quizDescription">Quiz Description</label>
+                            <input type="text" name="quizDescription" class="form-control" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="questionCards">
+
+                </div>
+
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <button class="form-control btn btn-success btn-block" type="button">Add Question +</button>
+                    </div>
+                </div>
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <button class="form-control btn btn-primary btn-block" type="submit">Submit Quiz</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>
